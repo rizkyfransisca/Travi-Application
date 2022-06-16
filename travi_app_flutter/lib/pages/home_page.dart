@@ -20,6 +20,16 @@ class _HomePageState extends State<HomePage> {
                   'assets/images/logo.png',
                   width: 120,
                 ),
+            ),
+            SizedBox(
+              height: 30,
+            ),
+            const Text(
+              'Hello World',
+              style: TextStyle(
+                fontFamily: 'Poppins',
+                color: Colors.black
+              ),
             )
           ],
         ),
