@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:travi_app/pages/homepage.dart';
+import 'package:travi_app/pages/home_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -29,6 +29,11 @@ class _NavbarButtonState extends State<NavbarButton> {
 
   List pages = [
     const HomePage(),
+    const HomePage(),
+    const HomePage(),
+    const HomePage(),
+    const HomePage(),
+    const HomePage(),
   ];
   
   void _changeSelectedNavBar(int index) {
@@ -47,12 +52,20 @@ class _NavbarButtonState extends State<NavbarButton> {
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.business),
-            label: 'Business',
+            icon: Icon(Icons.beach_access_outlined),
+            label: 'Destination',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.school),
-            label: 'School',
+            icon: Icon(Icons.festival_outlined),
+            label: 'Event & Festival',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.car_rental_outlined),
+            label: 'Tour Package',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.people_alt_outlined),
+            label: 'Join Us',
           ),
         ],
         currentIndex: _selectedNavbar,
