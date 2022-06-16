@@ -11,28 +11,187 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 15),
-              child: Image.asset(
-                  'assets/images/logo.png',
-                  width: 120,
+      body: ListView(
+        children: [
+          Center(
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 20),
+                  child: Image.asset(
+                      'assets/images/logo.png',
+                      width: 130,
+                    ),
                 ),
+                Stack(
+                  children: [
+                    Image.asset(
+                      'assets/images/bg_home.png',
+                      width: MediaQuery.of(context).size.width,
+                      height: 300,
+                      fit: BoxFit.cover,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 40, left: 15),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const SizedBox(
+                            width: 250,
+                            child: Text(
+                              'Nikmati Suasana Pedesaan',
+                              style: TextStyle(
+                                fontFamily: 'Poppins',
+                                fontWeight: FontWeight.w600,
+                                fontSize: 20,
+                                color: Colors.white,
+                                letterSpacing: 1.4
+                              ),
+                            ),
+                          ),
+                          const SizedBox(height: 15),
+                          const SizedBox(
+                            width: 350,
+                            child: Text(
+                              'Pengalaman terbaru anda berada di tempat yang jarang untuk kita kunjungi, mengenal adat dan budaya di suatu daerah',
+                              style: TextStyle(
+                                fontFamily: 'Poppins',
+                                fontWeight: FontWeight.w300,
+                                fontSize: 14,
+                                color: Colors.white,
+                                letterSpacing: 0.6
+                              ),
+                            ),
+                          ),
+                          const SizedBox(height: 30),
+                          Row(
+                            children: [
+                              ElevatedButton(
+                                onPressed: () {},
+                                child: const Padding(
+                                  padding: EdgeInsets.symmetric(vertical: 8),
+                                  child: Icon(
+                                    Icons.search_rounded
+                                  ),
+                                ),
+                                style: ButtonStyle(
+                                  backgroundColor: MaterialStateProperty.all(Colors.green),
+                                  shape: MaterialStateProperty.all(
+                                    RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(10)
+                                    )
+                                  )
+                                ),
+                              ),
+                              const SizedBox(width: 12),
+                              const Text(
+                                'Lihat Detail',
+                                style: TextStyle(
+                                  fontFamily: 'Poppins',
+                                  fontWeight: FontWeight.w300,
+                                  fontSize: 14,
+                                  color: Colors.white,
+                                  letterSpacing: 0.8
+                                ),
+                              )
+                            ],
+                          )
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+                const SizedBox(height: 40),
+                Column(
+                  children: [
+                    const Text(
+                      'Kembangkan Bisnis Anda Bersama Kami',
+                      style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontWeight: FontWeight.w600,
+                        fontSize: 14,
+                        color: Colors.black,
+                        letterSpacing: 0.8
+                      ),
+                    ),
+                    const SizedBox(height: 10),
+                    const Text(
+                      'Travi hadir untuk meningkatkan bisnis anda',
+                      style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontWeight: FontWeight.w400,
+                        fontSize: 11,
+                        color: Colors.black,
+                        letterSpacing: 0.8
+                      ),
+                    ),
+                    const SizedBox(height: 20),
+                    ElevatedButton(
+                      onPressed: () {},
+                      child: const Padding(
+                        padding: EdgeInsets.symmetric(vertical: 12, horizontal: 8),
+                        child: Text(
+                          'Mulai Sekarang',
+                          style: TextStyle(
+                            fontWeight: FontWeight.w600,  
+                            letterSpacing: 0.5
+                          ),
+                        ),
+                      ),
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(Colors.green),
+                        shape: MaterialStateProperty.all(
+                          RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10)
+                          )
+                        )
+                      ),
+                    )
+                  ],
+                ),
+                const SizedBox(height: 50),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Column(
+                        children: const [
+                          CircleAvatar(
+                            backgroundImage: AssetImage('assets/images/tana_toraja.png'),
+                            radius: 50,
+                          ),
+                          SizedBox(height: 10),
+                          Text('Tana Toraja')
+                        ],
+                      ),
+                      Column(
+                        children: const [
+                          CircleAvatar(
+                            backgroundImage: AssetImage('assets/images/pecak.png'),
+                            radius: 50,
+                          ),
+                          SizedBox(height: 10),
+                          Text('Tari Pecak')
+                        ],
+                      ),
+                      Column(
+                        children: const [
+                          CircleAvatar(
+                            backgroundImage: AssetImage('assets/images/larung_sesaji.png'),
+                            radius: 50,
+                          ),
+                          SizedBox(height: 10),
+                          Text('Larung Sesaji')
+                        ],
+                      )
+                    ],
+                  ),
+                )
+              ],
             ),
-            SizedBox(
-              height: 30,
-            ),
-            const Text(
-              'Hello World',
-              style: TextStyle(
-                fontFamily: 'Poppins',
-                color: Colors.black
-              ),
-            )
-          ],
-        ),
+          ),
+        ],
       )
     );
   }
