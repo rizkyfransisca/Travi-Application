@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/hello/world', function ($id) {
-    echo 'Hello Word';
+    echo "kadek";
 });
 
 Route::get('/hello/world', function ($id) {
