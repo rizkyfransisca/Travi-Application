@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 Card cardWidget({image, title}) {
   return Card(
-    elevation: 4,
+    elevation: 3,
     shadowColor: Colors.grey,
     clipBehavior: Clip.antiAlias,
     child: Column(
@@ -21,7 +21,7 @@ Card cardWidget({image, title}) {
             style: const TextStyle(
                 color: Colors.black87,
                 fontFamily: 'Poppins',
-                fontWeight: FontWeight.w100),
+                fontWeight: FontWeight.w500),
             maxLines: 2,
             overflow: TextOverflow.ellipsis,
           ),
@@ -67,30 +67,32 @@ class _TourPackagePageState extends State<TourPackagePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        title: const Center(
+          child: Text(
+            'Tour Package',
+            style: TextStyle(
+              color: Colors.green,
+              fontSize: 20,
+              fontFamily: 'Poppins',
+              fontWeight: FontWeight.bold
+            ),
+          ),
+        ),
+      ),
       body: Column(
         children: [
           Center(
             child: Column(
               children: [
                 Container(
-                  margin: const EdgeInsets.only(top: 15),
+                  margin: const EdgeInsets.only(top:15, bottom: 10),
                   child: const Text(
-                    'Tour Package',
+                    'Temukan paket tour impian mu disini...',
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                        fontSize: 22,
-                        fontFamily: 'Poppins',
-                        color: Colors.green,
-                        fontWeight: FontWeight.bold),
-                  ),
-                ),
-                Container(
-                  margin: const EdgeInsets.only(bottom: 10),
-                  child: const Text(
-                    'Cari paket tour impian mu disini...',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        fontSize: 14,
+                        fontSize: 14.8,
                         fontFamily: 'Poppins',
                         color: Colors.black),
                   ),
@@ -106,9 +108,9 @@ class _TourPackagePageState extends State<TourPackagePage> {
               crossAxisCount: 2,
               crossAxisSpacing: 10,
               mainAxisSpacing: 10,
-              mainAxisExtent: 220, // here set custom Height You Want
+              mainAxisExtent: 221, // here set custom Height You Want
             ),
-            itemCount: 4,
+            itemCount: 10,
             itemBuilder: (BuildContext context, int index) {
               return cardWidget(
                   image: 'assets/images/kintamani.jpg',
