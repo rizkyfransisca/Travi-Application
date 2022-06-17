@@ -11,18 +11,20 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        title: Center(
+          child: Image.asset(
+            'assets/images/logo.png',
+            width: 100,
+          ),
+        ),
+      ),
       body: ListView(
         children: [
           Center(
             child: Column(
               children: [
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 20),
-                  child: Image.asset(
-                      'assets/images/logo.png',
-                      width: 130,
-                    ),
-                ),
                 Stack(
                   children: [
                     Image.asset(
@@ -32,7 +34,7 @@ class _HomePageState extends State<HomePage> {
                       fit: BoxFit.cover,
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(top: 40, left: 15),
+                      padding: const EdgeInsets.only(top: 40, left: 20, right: 20),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -50,17 +52,14 @@ class _HomePageState extends State<HomePage> {
                             ),
                           ),
                           const SizedBox(height: 15),
-                          const SizedBox(
-                            width: 350,
-                            child: Text(
-                              'Pengalaman terbaru anda berada di tempat yang jarang untuk kita kunjungi, mengenal adat dan budaya di suatu daerah',
-                              style: TextStyle(
-                                fontFamily: 'Poppins',
-                                fontWeight: FontWeight.w300,
-                                fontSize: 14,
-                                color: Colors.white,
-                                letterSpacing: 0.6
-                              ),
+                          const Text(
+                            'Pengalaman terbaru anda berada di tempat yang jarang untuk kita kunjungi, mengenal adat dan budaya di suatu daerah',
+                            style: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontWeight: FontWeight.w300,
+                              fontSize: 13,
+                              color: Colors.white,
+                              letterSpacing: 0.4
                             ),
                           ),
                           const SizedBox(height: 30),
@@ -89,9 +88,9 @@ class _HomePageState extends State<HomePage> {
                                 style: TextStyle(
                                   fontFamily: 'Poppins',
                                   fontWeight: FontWeight.w300,
-                                  fontSize: 14,
+                                  fontSize: 13,
                                   color: Colors.white,
-                                  letterSpacing: 0.8
+                                  letterSpacing: 0.4
                                 ),
                               )
                             ],

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:travi_app/pages/home_page.dart';
-import 'package:travi_app/pages/tour_package_page.dart';
 import 'package:travi_app/pages/event_festival_page.dart';
+import 'package:travi_app/pages/tour_package_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -71,7 +71,7 @@ class _NavbarButtonState extends State<NavbarButton> {
         ],
         currentIndex: _selectedNavbar,
         selectedItemColor: Colors.green,
-        unselectedItemColor: Colors.grey,
+        unselectedItemColor: Colors.black,
         onTap: _changeSelectedNavBar,
       ),
     );
