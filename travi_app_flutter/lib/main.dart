@@ -12,9 +12,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: NavbarButton()
+      home: NavbarButton(),
+      routes: {
+        '/event-festival': (context) => const EventFestivalPage(),
+        '/event-festival/detail': (context) => const DetailEventFestival()
+      },
     );
   }
 }
