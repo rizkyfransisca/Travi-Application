@@ -108,7 +108,7 @@ class _TourPackagePageState extends State<TourPackagePage> {
               crossAxisCount: 2,
               crossAxisSpacing: 10,
               mainAxisSpacing: 10,
-              mainAxisExtent: 221, // here set custom Height You Want
+              mainAxisExtent: 225, // here set custom Height You Want
             ),
             itemCount: 10,
             itemBuilder: (BuildContext context, int index) {
