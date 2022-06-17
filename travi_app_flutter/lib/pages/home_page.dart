@@ -16,7 +16,7 @@ class _HomePageState extends State<HomePage> {
         title: Center(
           child: Image.asset(
             'assets/images/logo.png',
-            width: 130,
+            width: 100,
           ),
         ),
       ),
