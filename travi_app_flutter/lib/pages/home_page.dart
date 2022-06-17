@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -58,7 +56,7 @@ class _HomePageState extends State<HomePage> {
                             'Pengalaman terbaru anda berada di tempat yang jarang untuk kita kunjungi, mengenal adat dan budaya di suatu daerah',
                             style: TextStyle(
                               fontFamily: 'Poppins',
-                              fontWeight: FontWeight.w200,
+                              fontWeight: FontWeight.w300,
                               fontSize: 13,
                               color: Colors.white,
                               letterSpacing: 0.4
@@ -89,7 +87,7 @@ class _HomePageState extends State<HomePage> {
                                 'Lihat Detail',
                                 style: TextStyle(
                                   fontFamily: 'Poppins',
-                                  fontWeight: FontWeight.w200,
+                                  fontWeight: FontWeight.w300,
                                   fontSize: 13,
                                   color: Colors.white,
                                   letterSpacing: 0.4
