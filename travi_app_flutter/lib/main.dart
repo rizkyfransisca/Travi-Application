@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:travi_app/pages/home_page.dart';
+<<<<<<< HEAD
 import 'package:travi_app/pages/tour_package_page.dart';
+=======
+import 'package:travi_app/pages/event_festival_page.dart';
+>>>>>>> a74dc71fae27cb89a6506dfbc8e480f113bd3666
 
 void main() {
   runApp(const MyApp());
@@ -30,8 +34,8 @@ class _NavbarButtonState extends State<NavbarButton> {
 
   List pages = [
     const HomePage(),
-    const TourPackagePage(),
-    const TourPackagePage(),
+    const HomePage(),
+    const EventFestivalPage(),
     const HomePage(),
     const HomePage(),
     const HomePage(),
