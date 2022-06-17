@@ -53,7 +53,11 @@ class _DestinationPageState extends State<DestinationPage> {
             itemCount: title.length,
             itemBuilder: (context, index) {
               return GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  Navigator.pushNamed(context, '/destination/detail',
+                      arguments: ScreenArguments(img[index], title[index],
+                          location[index], excerpt[index]));
+                },
                 child: Container(
                   padding: const EdgeInsets.only(bottom: 15),
                   child: Column(

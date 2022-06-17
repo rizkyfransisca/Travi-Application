@@ -3,13 +3,14 @@ import 'package:travi_app/pages/home_page.dart';
 import 'package:travi_app/pages/event_festival_page.dart';
 import 'package:travi_app/pages/tour_package_detail_page.dart';
 import 'package:travi_app/pages/tour_package_page.dart';
+import 'package:travi_app/pages/destination_page.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({ Key? key }) : super(key: key);
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,14 +20,16 @@ class MyApp extends StatelessWidget {
       routes: {
         '/event-festival': (context) => const EventFestivalPage(),
         '/event-festival/detail': (context) => const DetailEventFestival(),
-        '/tour-package/detail' : (context) => const TourPackageDetail()
+        '/tour-package/detail': (context) => const TourPackageDetail(),
+        '/destination': (context) => const DestinationPage(),
+        '/destination/detail': (context) => const DetailDestination()
       },
     );
   }
 }
 
 class NavbarButton extends StatefulWidget {
-  const NavbarButton({ Key? key }) : super(key: key);
+  const NavbarButton({Key? key}) : super(key: key);
 
   @override
   State<NavbarButton> createState() => _NavbarButtonState();
@@ -37,17 +40,18 @@ class _NavbarButtonState extends State<NavbarButton> {
 
   List pages = [
     const HomePage(),
-    const HomePage(),
+    const DestinationPage(),
     const EventFestivalPage(),
     const TourPackagePage(),
     const HomePage(),
   ];
-  
+
   void _changeSelectedNavBar(int index) {
     setState(() {
       _selectedNavbar = index;
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
