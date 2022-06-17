@@ -71,7 +71,7 @@ class _NavbarButtonState extends State<NavbarButton> {
         ],
         currentIndex: _selectedNavbar,
         selectedItemColor: Colors.green,
-        unselectedItemColor: Colors.grey,
+        unselectedItemColor: Colors.black,
         onTap: _changeSelectedNavBar,
       ),
     );

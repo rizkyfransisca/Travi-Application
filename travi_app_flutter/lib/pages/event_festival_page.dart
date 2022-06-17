@@ -11,23 +11,26 @@ class _EventFestivalPageState extends State<EventFestivalPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        title: const Center(
+          child: Text(
+            'Event & Festival',
+            style: TextStyle(
+              color: Colors.green,
+              fontSize: 20,
+              fontFamily: 'Poppins',
+              fontWeight: FontWeight.bold
+            ),
+          ),
+        ),
+      ),
       body: ListView(
         children: [
           Center(
             child: Column(
-              children: const [
-                Padding(
-                  padding: EdgeInsets.all(20),
-                  child: Text(
-                    'Event & Festival',
-                    style: TextStyle(
-                      color: Colors.green,
-                      fontSize: 20,
-                      fontFamily: 'Poppins',
-                      fontWeight: FontWeight.bold
-                    ),
-                  ),
-                )
+              children: [
+                
               ],
             ),
           )
