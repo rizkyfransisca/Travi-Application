@@ -3,7 +3,7 @@ class TourPackage {
   final String packageName;
   final String travelName;
   final String duration;
-  final String price;
+  final int price;
   final String email;
   final String phoneNumber;
   final String address;

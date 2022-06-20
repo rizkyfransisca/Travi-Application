@@ -52,7 +52,7 @@ class DatabaseSeeder extends Seeder
 
         TourPackage::create([
             'nama' => 'Bali Travel',
-            'nama_paket' => 'Keliling Bali Selatan',
+            'nama_paket' => 'Keliling Bali Selatan dan Bali Barat',
             'email' => 'rizky.royal@gmail.com',
             'nomor_telepon' => '081938713808',
             'alamat' => 'Desa Sukawati, Gianyar',
@@ -67,7 +67,7 @@ class DatabaseSeeder extends Seeder
 
         TourPackage::create([
             'nama' => 'Wayan Travel',
-            'nama_paket' => 'Keliling Bali Utara',
+            'nama_paket' => 'Keliling Bali Utara dan Bali Timur',
             'email' => 'rizky.royal@gmail.com',
             'nomor_telepon' => '081938713808',
             'alamat' => 'Desa Munduk, Tabanan',

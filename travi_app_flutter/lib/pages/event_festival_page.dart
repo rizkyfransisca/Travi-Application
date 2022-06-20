@@ -1,4 +1,18 @@
 import 'package:flutter/material.dart';
+import 'dart:convert';
+import 'package:http/http.dart' as http;
+
+class EventFestival {
+  final int id;
+  final String judul;
+  final String lokasi;
+  final String deskripsi;
+  final String excerpt;
+  final String gambar;
+  final String createdAt;
+
+  const EventFestival(this.id, this.judul, this.lokasi, this.deskripsi, this.excerpt, this.gambar, this.createdAt);
+}
 
 class EventFestivalPage extends StatefulWidget {
   const EventFestivalPage({ Key? key }) : super(key: key);
@@ -8,6 +22,28 @@ class EventFestivalPage extends StatefulWidget {
 }
 
 class _EventFestivalPageState extends State<EventFestivalPage> {
+  Future<List<EventFestival>> getRequest() async {
+    String url = "http://127.0.0.1:8000/api/event-festival";
+    final response = await http.get(Uri.parse(url));
+
+    var responseData = json.decode(response.body);
+
+    List<EventFestival> eventfestivals = [];
+    for (var data in responseData) {
+      EventFestival eventfestival = EventFestival(
+          data["id"],
+          data["judul"],
+          data["lokasi"],
+          data["deskripsi"],
+          data["excerpt"],
+          data["gambar"],
+          data["created_at"]);
+          
+      eventfestivals.add(eventfestival);
+    }
+    return eventfestivals;
+  }
+
   @override
   Widget build(BuildContext context) {
     List<String> img = [
@@ -15,24 +51,6 @@ class _EventFestivalPageState extends State<EventFestivalPage> {
       'assets/images/labuh_sesaji.png',
       'assets/images/larung_sesaji.png',
       'assets/images/grebengan.png',
-    ];
-    List<String> title = [
-      'Upacara Adat Jawa Timur Kebo-Keboan',
-      'Upacara Adat Jawa Timur Labuh Sesaji',
-      'Upacara Adat Jawa Timur Larung Sesaji',
-      'Upacara Adat Jawa Timur Grebengan',
-    ];
-    List<String> location = [
-      'Banyuwangi, Jawa Timur',
-      'Magetan, Jawa Timur',
-      'Jawa Timur',
-      'Jawa Timur',
-    ];
-    List<String> excerpt = [
-      'Pada saat setiap tahun masyarakat daerah Banyuwangi berusaha untuk menjaga sebuah tradisi kemurnian..',
-      'Labuh Sesaji adalah salah satu kebiasaan tahunan yang telah digelar di Telaga Sarangan, Magetan..',
-      'Upacara adat Larung sesaji berbeda dengan upacara adat Labuh sesaji. Larung sesaji adalah sebuah..',
-      'Grebegan adalah salah satu tradisi upacara adat yang memiliki sifat kesyukuran, dilakukan bersama..',
     ];
     return Scaffold(
       appBar: AppBar(
@@ -50,85 +68,107 @@ class _EventFestivalPageState extends State<EventFestivalPage> {
         ),
       ),
       body: SafeArea(
-        child: ListView.builder(
-          itemCount: title.length,
-          itemBuilder: (context, index) {
-            return GestureDetector(
-              onTap: () {
-                Navigator.pushNamed(context, '/event-festival/detail',
-                  arguments: ScreenArguments(
-                    img[index],
-                    title[index],
-                    location[index],
-                    excerpt[index]
-                  ));
-              },
-              child: Container(
-                // padding: const EdgeInsets.only(bottom: 15),
-                margin: const EdgeInsets.only(bottom: 15),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Image.asset(
-                      img[index],
-                      width: MediaQuery.of(context).size.width,
-                      height: 250,
-                      fit: BoxFit.cover,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(15),
+        child: FutureBuilder(
+          future: getRequest(),
+          builder: (BuildContext context, AsyncSnapshot snapshot) {
+            if (snapshot.data == null){
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            } else {
+              return ListView.builder(
+                itemCount: snapshot.data.length,
+                itemBuilder: (context, index) {
+                  return GestureDetector(
+                    onTap: () {
+                      Navigator.pushNamed(context, '/event-festival/detail',
+                        arguments: EventFestival(
+                          snapshot.data[index].id,
+                          snapshot.data[index].judul,
+                          snapshot.data[index].lokasi,
+                          snapshot.data[index].deskripsi,
+                          snapshot.data[index].excerpt,
+                          img[index],
+                          snapshot.data[index].createdAt
+                        ));
+                    },
+                    child: Container(
+                      margin: const EdgeInsets.only(bottom: 15),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
-                            title[index],
-                            style: const TextStyle(
-                              fontFamily: 'Poppins',
-                              fontWeight: FontWeight.w600,
-                              fontSize: 16,
-                              letterSpacing: 0.6
-                            ),
+                          Image.asset(
+                            img[index],
+                            width: MediaQuery.of(context).size.width,
+                            height: 250,
+                            fit: BoxFit.cover,
                           ),
-                          const SizedBox(height: 12),
-                          Text(
-                            'Lokasi : ' + location[index],
-                            style: const TextStyle(
-                              fontFamily: 'Poppins',
-                              fontWeight: FontWeight.w300,
-                              fontSize: 13,
-                              letterSpacing: 0.4
-                            ),
-                          ),
-                          Text(
-                            excerpt[index],
-                            style: const TextStyle(
-                              fontFamily: 'Poppins',
-                              fontWeight: FontWeight.w300,
-                              fontSize: 13,
-                              letterSpacing: 0.4
+                          Padding(
+                            padding: const EdgeInsets.all(15),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  snapshot.data[index].judul,
+                                  style: const TextStyle(
+                                    fontFamily: 'Poppins',
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 16,
+                                    letterSpacing: 0.6
+                                  ),
+                                ),
+                                const SizedBox(height: 12),
+                                Text.rich(
+                                  TextSpan(
+                                    style: const TextStyle(
+                                      fontFamily: 'Poppins',
+                                      fontWeight: FontWeight.w300,
+                                      fontSize: 13,
+                                      letterSpacing: 0.4),
+                                    children: [
+                                      const TextSpan(text: 'Lokasi : ', style: TextStyle(fontWeight: FontWeight.bold)),
+                                      TextSpan(text: snapshot.data[index].lokasi),
+                                    ]
+                                  )
+                                ),
+                                Text.rich(
+                                  TextSpan(
+                                    style: const TextStyle(
+                                      fontFamily: 'Poppins',
+                                      fontWeight: FontWeight.w300,
+                                      fontSize: 13,
+                                      letterSpacing: 0.4),
+                                    children: [
+                                      const TextSpan(text: 'Dibuat Pada : ', style: TextStyle(fontWeight: FontWeight.bold)),
+                                      TextSpan(text: snapshot.data[index].createdAt.split('T')[0]),
+                                    ]
+                                  )
+                                ),
+                                const SizedBox(height: 8),
+                                Text(
+                                  snapshot.data[index].excerpt,
+                                  style: const TextStyle(
+                                    fontFamily: 'Poppins',
+                                    fontWeight: FontWeight.w300,
+                                    fontSize: 13,
+                                    letterSpacing: 0.4
+                                  ),
+                                )
+                              ],
                             ),
                           )
                         ],
                       ),
-                    )
-                  ],
-                ),
-              ),
-            );
-          },
-        ),
+                    ),
+                  );
+                },
+              );
+            }
+          }
+        )
       )
     );
   }
-}
-
-class ScreenArguments {
-  final String img;
-  final String title;
-  final String location;
-  final String excerpt;
-
-  ScreenArguments(this.img, this.title, this.location, this.excerpt);
 }
 
 class DetailEventFestival extends StatefulWidget {
@@ -141,7 +181,8 @@ class DetailEventFestival extends StatefulWidget {
 class _DetailEventFestivalState extends State<DetailEventFestival> {
   @override
   Widget build(BuildContext context) {
-    final arguments = ModalRoute.of(context)!.settings.arguments as ScreenArguments;
+    final arguments = ModalRoute.of(context)!.settings.arguments as EventFestival;
+    RegExp exp = RegExp(r"<[^>]*>",multiLine: true,caseSensitive: true);
     return Scaffold(
       appBar: AppBar(
         iconTheme: const IconThemeData(
@@ -159,51 +200,71 @@ class _DetailEventFestivalState extends State<DetailEventFestival> {
         ),
         centerTitle: true,
       ),
-      body: Column(
-        children: [
-          Image.asset(
-            arguments.img,
-            width: MediaQuery.of(context).size.width,
-            height: 250,
-            fit: BoxFit.cover,
-          ),
-          Padding(
-            padding: const EdgeInsets.all(15),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  arguments.title,
-                  style: const TextStyle(
-                    fontFamily: 'Poppins',
-                    fontWeight: FontWeight.w600,
-                    fontSize: 16,
-                    letterSpacing: 0.6
-                  ),
-                ),
-                const SizedBox(height: 12),
-                Text(
-                  'Lokasi : ' + arguments.location,
-                  style: const TextStyle(
-                    fontFamily: 'Poppins',
-                    fontWeight: FontWeight.w300,
-                    fontSize: 13,
-                    letterSpacing: 0.4
-                  ),
-                ),
-                Text(
-                  arguments.excerpt,
-                  style: const TextStyle(
-                    fontFamily: 'Poppins',
-                    fontWeight: FontWeight.w300,
-                    fontSize: 13,
-                    letterSpacing: 0.4
-                  ),
-                )
-              ],
+      body: ListView(
+        children: [Column(
+          children: [
+            Image.asset(
+              arguments.gambar,
+              width: MediaQuery.of(context).size.width,
+              height: 250,
+              fit: BoxFit.cover,
             ),
-          )
-        ],
+            Padding(
+              padding: const EdgeInsets.all(15),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    arguments.judul,
+                    style: const TextStyle(
+                      fontFamily: 'Poppins',
+                      fontWeight: FontWeight.w600,
+                      fontSize: 16,
+                      letterSpacing: 0.6
+                    ),
+                  ),
+                  const SizedBox(height: 12),
+                  Text.rich(
+                    TextSpan(
+                      style: const TextStyle(
+                        fontFamily: 'Poppins',
+                        fontWeight: FontWeight.w300,
+                        fontSize: 13,
+                        letterSpacing: 0.4),
+                      children: [
+                        const TextSpan(text: 'Lokasi : ', style: TextStyle(fontWeight: FontWeight.bold)),
+                        TextSpan(text: arguments.lokasi),
+                      ]
+                    )
+                  ),
+                  Text.rich(
+                    TextSpan(
+                      style: const TextStyle(
+                        fontFamily: 'Poppins',
+                        fontWeight: FontWeight.w300,
+                        fontSize: 13,
+                        letterSpacing: 0.4),
+                      children: [
+                        const TextSpan(text: 'Dibuat Pada : ', style: TextStyle(fontWeight: FontWeight.bold)),
+                        TextSpan(text: arguments.createdAt.split('T')[0]),
+                      ]
+                    )
+                  ),
+                  const SizedBox(height: 12),
+                  Text(
+                    arguments.deskripsi.replaceAll(exp, ''),
+                    style: const TextStyle(
+                      fontFamily: 'Poppins',
+                      fontWeight: FontWeight.w300,
+                      fontSize: 13,
+                      letterSpacing: 0.4
+                    ),
+                  )
+                ],
+              ),
+            )
+          ],
+        )],
       ),
     );
   }
