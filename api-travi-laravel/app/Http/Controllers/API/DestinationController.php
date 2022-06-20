@@ -5,7 +5,7 @@ use App\Http\Controllers\Controller;
 
 use App\Models\Destination;
 
-class TourPackageController extends Controller
+class DestinationController extends Controller
 {
     public function index(){
         return response()->json(
