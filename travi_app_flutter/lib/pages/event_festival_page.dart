@@ -140,7 +140,7 @@ class _EventFestivalPageState extends State<EventFestivalPage> {
                                       letterSpacing: 0.4),
                                     children: [
                                       const TextSpan(text: 'Dibuat Pada : ', style: TextStyle(fontWeight: FontWeight.bold)),
-                                      TextSpan(text: snapshot.data[index].createdAt),
+                                      TextSpan(text: snapshot.data[index].createdAt.split('T')[0]),
                                     ]
                                   )
                                 ),
@@ -223,15 +223,33 @@ class _DetailEventFestivalState extends State<DetailEventFestival> {
                     ),
                   ),
                   const SizedBox(height: 12),
-                  Text(
-                    'Lokasi : ' + arguments.lokasi,
-                    style: const TextStyle(
-                      fontFamily: 'Poppins',
-                      fontWeight: FontWeight.w300,
-                      fontSize: 13,
-                      letterSpacing: 0.4
-                    ),
+                  Text.rich(
+                    TextSpan(
+                      style: const TextStyle(
+                        fontFamily: 'Poppins',
+                        fontWeight: FontWeight.w300,
+                        fontSize: 13,
+                        letterSpacing: 0.4),
+                      children: [
+                        const TextSpan(text: 'Lokasi : ', style: TextStyle(fontWeight: FontWeight.bold)),
+                        TextSpan(text: arguments.lokasi),
+                      ]
+                    )
                   ),
+                  Text.rich(
+                    TextSpan(
+                      style: const TextStyle(
+                        fontFamily: 'Poppins',
+                        fontWeight: FontWeight.w300,
+                        fontSize: 13,
+                        letterSpacing: 0.4),
+                      children: [
+                        const TextSpan(text: 'Dibuat Pada : ', style: TextStyle(fontWeight: FontWeight.bold)),
+                        TextSpan(text: arguments.createdAt.split('T')[0]),
+                      ]
+                    )
+                  ),
+                  const SizedBox(height: 12),
                   Text(
                     arguments.deskripsi,
                     style: const TextStyle(
