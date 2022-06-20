@@ -5,7 +5,7 @@ use App\Http\Controllers\Controller;
 
 use App\Models\EventFestival;
 
-class TourPackageController extends Controller
+class EventFestivalController extends Controller
 {
     public function index(){
         return response()->json(
