@@ -182,6 +182,7 @@ class _DetailEventFestivalState extends State<DetailEventFestival> {
   @override
   Widget build(BuildContext context) {
     final arguments = ModalRoute.of(context)!.settings.arguments as EventFestival;
+    RegExp exp = RegExp(r"<[^>]*>",multiLine: true,caseSensitive: true);
     return Scaffold(
       appBar: AppBar(
         iconTheme: const IconThemeData(
@@ -251,7 +252,7 @@ class _DetailEventFestivalState extends State<DetailEventFestival> {
                   ),
                   const SizedBox(height: 12),
                   Text(
-                    arguments.deskripsi,
+                    arguments.deskripsi.replaceAll(exp, ''),
                     style: const TextStyle(
                       fontFamily: 'Poppins',
                       fontWeight: FontWeight.w300,
