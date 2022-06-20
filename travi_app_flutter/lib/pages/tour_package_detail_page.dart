@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:travi_app/pages/tour_package_page.dart';
+import 'package:travi_app/tour_package.dart';
 
 class TourPackageDetail extends StatefulWidget {
   const TourPackageDetail({Key? key}) : super(key: key);
@@ -12,7 +13,7 @@ class _TourPackageDetailState extends State<TourPackageDetail> {
   @override
   Widget build(BuildContext context) {
     final arguments =
-        ModalRoute.of(context)!.settings.arguments as TourPackageArguments;
+        ModalRoute.of(context)!.settings.arguments as TourPackage;
 
     return Scaffold(
       appBar: AppBar(
