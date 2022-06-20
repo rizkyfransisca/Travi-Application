@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:travi_app/tour_package.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:intl/intl.dart';
 
 Card cardWidget(
     {image,
@@ -16,6 +17,11 @@ Card cardWidget(
     description,
     service,
     context}) {
+  NumberFormat currencyFormatter = NumberFormat.currency(
+    locale: 'id',
+    symbol: 'Rp ',
+    decimalDigits: 0,
+  );
   return Card(
     elevation: 3,
     shadowColor: Colors.grey,
@@ -75,7 +81,7 @@ Card cardWidget(
           ),
           Container(
             margin: const EdgeInsets.only(top: 4, left: 8),
-            child: Text(price,
+            child: Text(currencyFormatter.format(price).toString(),
                 style: const TextStyle(
                     fontWeight: FontWeight.bold,
                     fontFamily: 'Poppins',
@@ -92,14 +98,10 @@ Future<List<TourPackage>> fetchTourPackages() async {
   final response =
       await http.get(Uri.parse("http://127.0.0.1:8000/api/tour-package"));
 
-  if (response.statusCode == 200) {
-    List<dynamic> body = jsonDecode(response.body);
-    List<TourPackage> todos =
+  List<dynamic> body = jsonDecode(response.body);
+  List<TourPackage> todos =
         body.map((dynamic item) => TourPackage.fromJson(item)).toList();
-    return todos;
-  } else {
-    throw Exception("Failed to load todo");
-  }
+  return todos;
 }
 
 class TourPackagePage extends StatefulWidget {
@@ -221,7 +223,7 @@ class _TourPackagePageState extends State<TourPackagePage> {
               child: FutureBuilder<List<TourPackage>>(
             future: futureTourPackages,
             builder: (context, snapshot) {
-              if (snapshot.hasData) {
+              if (snapshot.data != null) {
                 return GridView.builder(
                   primary: false,
                   padding: const EdgeInsets.all(10),

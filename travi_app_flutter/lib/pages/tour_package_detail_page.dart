@@ -99,7 +99,7 @@ class _TourPackageDetailState extends State<TourPackageDetail> {
                               letterSpacing: 0.4),
                             children: [
                               const TextSpan(text: 'Harga : ', style: TextStyle(fontWeight: FontWeight.bold)),
-                              TextSpan(text: arguments.price)
+                              TextSpan(text: arguments.price.toString())
                             ]
                           )
                         ),
