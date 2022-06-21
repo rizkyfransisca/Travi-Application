@@ -4,6 +4,7 @@ import 'package:travi_app/pages/event_festival_page.dart';
 import 'package:travi_app/pages/tour_package_detail_page.dart';
 import 'package:travi_app/pages/tour_package_page.dart';
 import 'package:travi_app/pages/destination_page.dart';
+import 'package:travi_app/pages/join_us_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -43,7 +44,7 @@ class _NavbarButtonState extends State<NavbarButton> {
     const DestinationPage(),
     const EventFestivalPage(),
     const TourPackagePage(),
-    const HomePage(),
+    const JoinUsPage(),
   ];
 
   void _changeSelectedNavBar(int index) {

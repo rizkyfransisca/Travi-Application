@@ -66,6 +66,7 @@ class _EventFestivalPageState extends State<EventFestivalPage> {
             ),
           ),
         ),
+        centerTitle: true,
       ),
       body: SafeArea(
         child: FutureBuilder(
@@ -259,7 +260,8 @@ class _DetailEventFestivalState extends State<DetailEventFestival> {
                       fontSize: 13,
                       letterSpacing: 0.4
                     ),
-                  )
+                  ),
+                  const SizedBox(height: 20)
                 ],
               ),
             )
