@@ -45,7 +45,7 @@ Card cardWidget(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Image.asset(
+          Image.network(
             image,
             fit: BoxFit.cover,
             width: double.infinity,
@@ -94,14 +94,15 @@ Card cardWidget(
   );
 }
 
+const url = 'http://192.168.1.4:8000';
+
 Future<List<TourPackage>> fetchTourPackages() async {
-  final response =
-      await http.get(Uri.parse("http://127.0.0.1:8000/api/tour-package"));
+  final response = await http.get(Uri.parse("$url/api/tour-package"));
 
   List<dynamic> body = jsonDecode(response.body);
-  List<TourPackage> todos =
-        body.map((dynamic item) => TourPackage.fromJson(item)).toList();
-  return todos;
+  List<TourPackage> tourPackages =
+      body.map((dynamic item) => TourPackage.fromJson(item)).toList();
+  return tourPackages;
 }
 
 class TourPackagePage extends StatefulWidget {
@@ -236,7 +237,7 @@ class _TourPackagePageState extends State<TourPackagePage> {
                   itemCount: snapshot.data!.length,
                   itemBuilder: (BuildContext context, int index) {
                     return cardWidget(
-                        image: images[index],
+                        image: url + '/Gambar/Tour%20Package/' + snapshot.data![index].image,
                         packageName: snapshot.data![index].packageName,
                         travelName: snapshot.data![index].travelName,
                         duration: snapshot.data![index].duration,
@@ -250,7 +251,7 @@ class _TourPackagePageState extends State<TourPackagePage> {
                         context: context);
                   },
                 );
-              }else {
+              } else {
                 return const Center(child: CircularProgressIndicator());
               }
             },

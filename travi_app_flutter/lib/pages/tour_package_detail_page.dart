@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:travi_app/pages/tour_package_page.dart';
 import 'package:travi_app/tour_package.dart';
+import 'package:intl/intl.dart';
 
 class TourPackageDetail extends StatefulWidget {
   const TourPackageDetail({Key? key}) : super(key: key);
@@ -14,6 +15,12 @@ class _TourPackageDetailState extends State<TourPackageDetail> {
   Widget build(BuildContext context) {
     final arguments =
         ModalRoute.of(context)!.settings.arguments as TourPackage;
+
+    NumberFormat currencyFormatter = NumberFormat.currency(
+      locale: 'id',
+      symbol: 'Rp ',
+      decimalDigits: 0,
+    );
 
     return Scaffold(
       appBar: AppBar(
@@ -33,7 +40,7 @@ class _TourPackageDetailState extends State<TourPackageDetail> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Image.asset(
+            Image.network(
               arguments.image,
               width: MediaQuery.of(context).size.width,
               height: 250,
@@ -99,7 +106,7 @@ class _TourPackageDetailState extends State<TourPackageDetail> {
                               letterSpacing: 0.4),
                             children: [
                               const TextSpan(text: 'Harga : ', style: TextStyle(fontWeight: FontWeight.bold)),
-                              TextSpan(text: arguments.price.toString())
+                              TextSpan(text: currencyFormatter.format(arguments.price).toString())
                             ]
                           )
                         ),
