@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_html/flutter_html.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
@@ -46,12 +47,12 @@ class _EventFestivalPageState extends State<EventFestivalPage> {
 
   @override
   Widget build(BuildContext context) {
-    List<String> img = [
-      'assets/images/kebo_keboan.png',
-      'assets/images/labuh_sesaji.png',
-      'assets/images/larung_sesaji.png',
-      'assets/images/grebengan.png',
-    ];
+    // List<String> img = [
+    //   'assets/images/kebo_keboan.png',
+    //   'assets/images/labuh_sesaji.png',
+    //   'assets/images/larung_sesaji.png',
+    //   'assets/images/grebengan.png',
+    // ];
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -89,7 +90,7 @@ class _EventFestivalPageState extends State<EventFestivalPage> {
                           snapshot.data[index].lokasi,
                           snapshot.data[index].deskripsi,
                           snapshot.data[index].excerpt,
-                          img[index],
+                          'http://127.0.0.1:8000/Gambar/eventfestival/' + snapshot.data[index].gambar,
                           snapshot.data[index].createdAt
                         ));
                     },
@@ -98,8 +99,8 @@ class _EventFestivalPageState extends State<EventFestivalPage> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Image.asset(
-                            img[index],
+                          Image.network(
+                            'http://127.0.0.1:8000/Gambar/eventfestival/' + snapshot.data[index].gambar,
                             width: MediaQuery.of(context).size.width,
                             height: 250,
                             fit: BoxFit.cover,
@@ -183,7 +184,6 @@ class _DetailEventFestivalState extends State<DetailEventFestival> {
   @override
   Widget build(BuildContext context) {
     final arguments = ModalRoute.of(context)!.settings.arguments as EventFestival;
-    RegExp exp = RegExp(r"<[^>]*>",multiLine: true,caseSensitive: true);
     return Scaffold(
       appBar: AppBar(
         iconTheme: const IconThemeData(
@@ -204,7 +204,7 @@ class _DetailEventFestivalState extends State<DetailEventFestival> {
       body: ListView(
         children: [Column(
           children: [
-            Image.asset(
+            Image.network(
               arguments.gambar,
               width: MediaQuery.of(context).size.width,
               height: 250,
@@ -252,14 +252,12 @@ class _DetailEventFestivalState extends State<DetailEventFestival> {
                     )
                   ),
                   const SizedBox(height: 12),
-                  Text(
-                    arguments.deskripsi.replaceAll(exp, ''),
-                    style: const TextStyle(
-                      fontFamily: 'Poppins',
-                      fontWeight: FontWeight.w300,
-                      fontSize: 13,
-                      letterSpacing: 0.4
-                    ),
+                  Html(
+                    data: arguments.deskripsi,
+                    style: {
+                      '*': Style(padding: const EdgeInsets.all(0), margin: const EdgeInsets.all(0)),
+                      'p': Style(fontFamily: 'Poppins', fontWeight: FontWeight.w300, letterSpacing: 0.4, margin: const EdgeInsets.only(bottom: 10))
+                    },
                   ),
                   const SizedBox(height: 20)
                 ],
