@@ -120,14 +120,14 @@ class _TourPackageDetailState extends State<TourPackageDetail> {
                                 fontFamily: 'Poppins',
                                 fontSize: 13,
                                 letterSpacing: 0.4)),
-                        Html(
-                          data: arguments.activity,
-                          defaultTextStyle: const TextStyle(
-                              fontFamily: 'Poppins',
-                              fontWeight: FontWeight.w300,
-                              fontSize: 13,
-                              letterSpacing: 0.4),
-                        ),
+                        // Html(
+                        //   data: arguments.activity,
+                        //   defaultTextStyle: const TextStyle(
+                        //       fontFamily: 'Poppins',
+                        //       fontWeight: FontWeight.w300,
+                        //       fontSize: 13,
+                        //       letterSpacing: 0.4),
+                        // ),
                         const SizedBox(height: 3),
                         const Text('Pelayanan : ',
                             style: TextStyle(
@@ -135,14 +135,14 @@ class _TourPackageDetailState extends State<TourPackageDetail> {
                                 fontFamily: 'Poppins',
                                 fontSize: 13,
                                 letterSpacing: 0.4)),
-                        Html(
-                          data: arguments.service,
-                          defaultTextStyle: const TextStyle(
-                              fontFamily: 'Poppins',
-                              fontWeight: FontWeight.w300,
-                              fontSize: 13,
-                              letterSpacing: 0.4),
-                        ),
+                        // Html(
+                        //   data: arguments.service,
+                        //   defaultTextStyle: const TextStyle(
+                        //       fontFamily: 'Poppins',
+                        //       fontWeight: FontWeight.w300,
+                        //       fontSize: 13,
+                        //       letterSpacing: 0.4),
+                        // ),
                         const SizedBox(height: 3),
                         Text.rich(TextSpan(
                             style: const TextStyle(
