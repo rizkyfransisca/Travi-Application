@@ -252,13 +252,13 @@ class _DetailEventFestivalState extends State<DetailEventFestival> {
                     )
                   ),
                   const SizedBox(height: 12),
-                  Html(
-                    data: arguments.deskripsi,
-                    style: {
-                      '*': Style(padding: const EdgeInsets.all(0), margin: const EdgeInsets.all(0)),
-                      'p': Style(fontFamily: 'Poppins', fontWeight: FontWeight.w300, letterSpacing: 0.4, margin: const EdgeInsets.only(bottom: 10))
-                    },
-                  ),
+                  // Html(
+                  //   data: arguments.deskripsi,
+                  //   style: {
+                  //     '*': Style(padding: const EdgeInsets.all(0), margin: const EdgeInsets.all(0)),
+                  //     'p': Style(fontFamily: 'Poppins', fontWeight: FontWeight.w300, letterSpacing: 0.4, margin: const EdgeInsets.only(bottom: 10))
+                  //   },
+                  // ),
                   const SizedBox(height: 20)
                 ],
               ),
