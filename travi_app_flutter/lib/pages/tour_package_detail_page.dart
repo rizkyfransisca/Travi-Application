@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:travi_app/pages/tour_package_page.dart';
 import 'package:travi_app/tour_package.dart';
 import 'package:intl/intl.dart';
+import 'package:flutter_html/flutter_html.dart';
 
 class TourPackageDetail extends StatefulWidget {
   const TourPackageDetail({Key? key}) : super(key: key);
@@ -13,8 +14,7 @@ class TourPackageDetail extends StatefulWidget {
 class _TourPackageDetailState extends State<TourPackageDetail> {
   @override
   Widget build(BuildContext context) {
-    final arguments =
-        ModalRoute.of(context)!.settings.arguments as TourPackage;
+    final arguments = ModalRoute.of(context)!.settings.arguments as TourPackage;
 
     NumberFormat currencyFormatter = NumberFormat.currency(
       locale: 'id',
@@ -69,127 +69,133 @@ class _TourPackageDetailState extends State<TourPackageDetail> {
                               letterSpacing: 0.6),
                         ),
                         const SizedBox(height: 12),
-                        Text.rich(
-                          TextSpan(
+                        Text.rich(TextSpan(
                             style: const TextStyle(
-                              fontFamily: 'Poppins',
-                              fontWeight: FontWeight.w300,
-                              fontSize: 13,
-                              letterSpacing: 0.4),
+                                fontFamily: 'Poppins',
+                                fontWeight: FontWeight.w300,
+                                fontSize: 13,
+                                letterSpacing: 0.4),
                             children: [
-                              const TextSpan(text: 'Nama Travel : ', style: TextStyle(fontWeight: FontWeight.bold)),
+                              const TextSpan(
+                                  text: 'Nama Travel : ',
+                                  style:
+                                      TextStyle(fontWeight: FontWeight.bold)),
                               TextSpan(text: arguments.travelName),
-                            ]
-                          )
-                        ),
+                            ])),
                         const SizedBox(height: 3),
-                        Text.rich(
-                          TextSpan(
+                        Text.rich(TextSpan(
                             style: const TextStyle(
-                              fontFamily: 'Poppins',
-                              fontWeight: FontWeight.w300,
-                              fontSize: 13,
-                              letterSpacing: 0.4),
+                                fontFamily: 'Poppins',
+                                fontWeight: FontWeight.w300,
+                                fontSize: 13,
+                                letterSpacing: 0.4),
                             children: [
-                              const TextSpan(text: 'Durasi : ', style: TextStyle(fontWeight: FontWeight.bold)),
+                              const TextSpan(
+                                  text: 'Durasi : ',
+                                  style:
+                                      TextStyle(fontWeight: FontWeight.bold)),
                               TextSpan(text: arguments.duration)
-                            ]
-                          )
-                        ),
+                            ])),
                         const SizedBox(height: 3),
-                        Text.rich(
-                          TextSpan(
+                        Text.rich(TextSpan(
                             style: const TextStyle(
+                                fontFamily: 'Poppins',
+                                fontWeight: FontWeight.w300,
+                                fontSize: 13,
+                                letterSpacing: 0.4),
+                            children: [
+                              const TextSpan(
+                                  text: 'Harga : ',
+                                  style:
+                                      TextStyle(fontWeight: FontWeight.bold)),
+                              TextSpan(
+                                  text: currencyFormatter
+                                      .format(arguments.price)
+                                      .toString())
+                            ])),
+                        const SizedBox(height: 3),
+                        const Text('Aktivitas : ',
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontFamily: 'Poppins',
+                                fontSize: 13,
+                                letterSpacing: 0.4)),
+                        Html(
+                          data: arguments.activity,
+                          defaultTextStyle: const TextStyle(
                               fontFamily: 'Poppins',
                               fontWeight: FontWeight.w300,
                               fontSize: 13,
                               letterSpacing: 0.4),
-                            children: [
-                              const TextSpan(text: 'Harga : ', style: TextStyle(fontWeight: FontWeight.bold)),
-                              TextSpan(text: currencyFormatter.format(arguments.price).toString())
-                            ]
-                          )
                         ),
                         const SizedBox(height: 3),
-                        Text.rich(
-                          TextSpan(
-                            style: const TextStyle(
+                        const Text('Pelayanan : ',
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontFamily: 'Poppins',
+                                fontSize: 13,
+                                letterSpacing: 0.4)),
+                        Html(
+                          data: arguments.service,
+                          defaultTextStyle: const TextStyle(
                               fontFamily: 'Poppins',
                               fontWeight: FontWeight.w300,
                               fontSize: 13,
                               letterSpacing: 0.4),
-                            children: [
-                              const TextSpan(text: 'Kegiatan Wisata : ', style: TextStyle(fontWeight: FontWeight.bold)),
-                              TextSpan(text: arguments.activity),
-                            ]
-                          )
                         ),
                         const SizedBox(height: 3),
-                        Text.rich(
-                          TextSpan(
+                        Text.rich(TextSpan(
                             style: const TextStyle(
-                              fontFamily: 'Poppins',
-                              fontWeight: FontWeight.w300,
-                              fontSize: 13,
-                              letterSpacing: 0.4),
+                                fontFamily: 'Poppins',
+                                fontWeight: FontWeight.w300,
+                                fontSize: 13,
+                                letterSpacing: 0.4),
                             children: [
-                              const TextSpan(text: 'Pelayanan : ', style: TextStyle(fontWeight: FontWeight.bold) ),
-                              TextSpan(text: arguments.service),
-                            ]
-                          )
-                        ),
-                        const SizedBox(height: 3),
-                        Text.rich(
-                          TextSpan(
-                            style: const TextStyle(
-                              fontFamily: 'Poppins',
-                              fontWeight: FontWeight.w300,
-                              fontSize: 13,
-                              letterSpacing: 0.4),
-                            children: [
-                              const TextSpan(text: 'Email : ', style: TextStyle(fontWeight: FontWeight.bold)),
+                              const TextSpan(
+                                  text: 'Email : ',
+                                  style:
+                                      TextStyle(fontWeight: FontWeight.bold)),
                               TextSpan(text: arguments.email),
-                            ]
-                          )
-                        ),
+                            ])),
                         const SizedBox(height: 3),
-                        Text.rich(
-                          TextSpan(
+                        Text.rich(TextSpan(
                             style: const TextStyle(
-                              fontFamily: 'Poppins',
-                              fontWeight: FontWeight.w300,
-                              fontSize: 13,
-                              letterSpacing: 0.4),
+                                fontFamily: 'Poppins',
+                                fontWeight: FontWeight.w300,
+                                fontSize: 13,
+                                letterSpacing: 0.4),
                             children: [
-                              const TextSpan(text: 'No Telepon : ', style: TextStyle(fontWeight: FontWeight.bold)),
+                              const TextSpan(
+                                  text: 'No Telepon : ',
+                                  style:
+                                      TextStyle(fontWeight: FontWeight.bold)),
                               TextSpan(text: arguments.phoneNumber),
-                            ]
-                          )
-                        ),
+                            ])),
                         const SizedBox(height: 3),
-                        Text.rich(
-                          TextSpan(
+                        Text.rich(TextSpan(
                             style: const TextStyle(
-                              fontFamily: 'Poppins',
-                              fontWeight: FontWeight.w300,
-                              fontSize: 13,
-                              letterSpacing: 0.4),
+                                fontFamily: 'Poppins',
+                                fontWeight: FontWeight.w300,
+                                fontSize: 13,
+                                letterSpacing: 0.4),
                             children: [
-                              const TextSpan(text: 'Alamat : ', style: TextStyle(fontWeight: FontWeight.bold)),
+                              const TextSpan(
+                                  text: 'Alamat : ',
+                                  style:
+                                      TextStyle(fontWeight: FontWeight.bold)),
                               TextSpan(text: arguments.address),
-                            ]
-                          )
-                        ),
+                            ])),
                         const SizedBox(height: 26),
                         ElevatedButton(
                           onPressed: () {},
                           child: const Padding(
-                            padding:
-                                EdgeInsets.symmetric(vertical: 8, horizontal: 4),
+                            padding: EdgeInsets.symmetric(
+                                vertical: 8, horizontal: 4),
                             child: Text(
                               'Mulai Sekarang',
                               style: TextStyle(
-                                  fontWeight: FontWeight.w600, letterSpacing: 0.5),
+                                  fontWeight: FontWeight.w600,
+                                  letterSpacing: 0.5),
                             ),
                           ),
                           style: ButtonStyle(
