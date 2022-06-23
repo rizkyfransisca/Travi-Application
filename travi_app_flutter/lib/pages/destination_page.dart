@@ -63,12 +63,12 @@ class _DestinationPageState extends State<DestinationPage> {
 
   @override
   Widget build(BuildContext context) {
-    List<String> img = [
-      'assets/images/desa_sade_lombok.png',
-      'assets/images/warebo.png',
-      'assets/images/desa_argosari_lumajang.png',
-      'assets/images/Desa_Penglipuran_Bangli_Bali.png',
-    ];
+    // List<String> img = [
+    //   'assets/images/desa_sade_lombok.png',
+    //   'assets/images/warebo.png',
+    //   'assets/images/desa_argosari_lumajang.png',
+    //   'assets/images/Desa_Penglipuran_Bangli_Bali.png',
+    // ];
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.white,
@@ -104,7 +104,9 @@ class _DestinationPageState extends State<DestinationPage> {
                                   lokasi: snapshot.data[index].lokasi,
                                   deskripsi: snapshot.data[index].deskripsi,
                                   excerpt: snapshot.data[index].excerpt,
-                                  gambar: img[index],
+                                  gambar:
+                                      'http://127.0.0.1:8000/Gambar/destinations/' +
+                                          snapshot.data[index].gambar,
                                   slug: snapshot.data[index].slug,
                                   created_at: snapshot.data[index].created_at,
                                   updated_at: snapshot.data[index].updated_at,
@@ -115,8 +117,9 @@ class _DestinationPageState extends State<DestinationPage> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Image.asset(
-                                  img[index],
+                                Image.network(
+                                  'http://127.0.0.1:8000/Gambar/destinations/' +
+                                      snapshot.data[index].gambar,
                                   width: MediaQuery.of(context).size.width,
                                   height: 250,
                                   fit: BoxFit.cover,
@@ -139,6 +142,16 @@ class _DestinationPageState extends State<DestinationPage> {
                                       Text(
                                         'Lokasi : ' +
                                             snapshot.data[index].lokasi,
+                                        style: const TextStyle(
+                                            fontFamily: 'Poppins',
+                                            fontWeight: FontWeight.w300,
+                                            fontSize: 13,
+                                            letterSpacing: 0.4),
+                                      ),
+                                      Text(
+                                        'Dibuat pada : ' +
+                                            snapshot.data[index].created_at
+                                                .split('T')[0],
                                         style: const TextStyle(
                                             fontFamily: 'Poppins',
                                             fontWeight: FontWeight.w300,
@@ -177,8 +190,7 @@ class DetailDestination extends StatefulWidget {
 class _DetailDestinationState extends State<DetailDestination> {
   @override
   Widget build(BuildContext context) {
-    final arguments =
-        ModalRoute.of(context)!.settings.arguments as Destination;
+    final arguments = ModalRoute.of(context)!.settings.arguments as Destination;
     return Scaffold(
       appBar: AppBar(
         iconTheme: const IconThemeData(color: Colors.black),
@@ -193,50 +205,60 @@ class _DetailDestinationState extends State<DetailDestination> {
         ),
         centerTitle: true,
       ),
-      body: SafeArea(
-        child: Column(
-          children: [
-            Image.asset(
-              arguments.gambar,
-              width: MediaQuery.of(context).size.width,
-              height: 250,
-              fit: BoxFit.cover,
-            ),
-            Padding(
-              padding: const EdgeInsets.all(15),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    arguments.judul,
-                    style: const TextStyle(
-                        fontFamily: 'Poppins',
-                        fontWeight: FontWeight.w600,
-                        fontSize: 16,
-                        letterSpacing: 0.6),
-                  ),
-                  const SizedBox(height: 12),
-                  Text(
-                    'Lokasi : ' + arguments.lokasi,
-                    style: const TextStyle(
-                        fontFamily: 'Poppins',
-                        fontWeight: FontWeight.w300,
-                        fontSize: 13,
-                        letterSpacing: 0.4),
-                  ),
-                  Text(
-                    arguments.deskripsi,
-                    style: const TextStyle(
-                        fontFamily: 'Poppins',
-                        fontWeight: FontWeight.w300,
-                        fontSize: 13,
-                        letterSpacing: 0.4),
-                  )
-                ],
+      body: ListView(
+        children: [
+          Column(
+            children: [
+              Image.network(
+                arguments.gambar,
+                width: MediaQuery.of(context).size.width,
+                height: 250,
+                fit: BoxFit.cover,
               ),
-            )
-          ],
-        ),
+              Padding(
+                padding: const EdgeInsets.all(15),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      arguments.judul,
+                      style: const TextStyle(
+                          fontFamily: 'Poppins',
+                          fontWeight: FontWeight.w600,
+                          fontSize: 16,
+                          letterSpacing: 0.6),
+                    ),
+                    const SizedBox(height: 12),
+                    Text(
+                      'Lokasi : ' + arguments.lokasi,
+                      style: const TextStyle(
+                          fontFamily: 'Poppins',
+                          fontWeight: FontWeight.w300,
+                          fontSize: 13,
+                          letterSpacing: 0.4),
+                    ),
+                    Text(
+                      'Dibuat pada : ' + arguments.created_at.split('T')[0],
+                      style: const TextStyle(
+                          fontFamily: 'Poppins',
+                          fontWeight: FontWeight.w300,
+                          fontSize: 13,
+                          letterSpacing: 0.4),
+                    ),
+                    Text(
+                      arguments.deskripsi,
+                      style: const TextStyle(
+                          fontFamily: 'Poppins',
+                          fontWeight: FontWeight.w300,
+                          fontSize: 13,
+                          letterSpacing: 0.4),
+                    )
+                  ],
+                ),
+              )
+            ],
+          )
+        ],
       ),
     );
   }

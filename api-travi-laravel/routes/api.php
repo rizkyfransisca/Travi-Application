@@ -18,6 +18,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/tour-package', [TourPackageController::class, 'index']);
+Route::post('/tour-package', [TourPackageController::class, 'store']);
+
 Route::get('/event-festival', [EventFestivalController::class, 'index']);
 Route::get('/destination', [DestinationController::class, 'index']);
 
