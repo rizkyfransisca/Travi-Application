@@ -37,7 +37,11 @@ class _JoinUsPageState extends State<JoinUsPage> {
     });
   }
 
-  Future<void> storeTourPackageData() async {}
+  @override
+  void initState() {
+    super.initState();
+    uploadedImage = null;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -63,6 +67,35 @@ class _JoinUsPageState extends State<JoinUsPage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    Center(
+                      child: Container(
+                        margin: const EdgeInsets.only(top: 6),
+                        child: const Text(
+                          'Kembangkan Bisnis Anda Bersama Kami',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              fontSize: 17,
+                              fontWeight: FontWeight.bold,
+                              fontFamily: 'Poppins',
+                              color: Colors.black),
+                        ),
+                      ),
+                    ),
+
+                    Center(
+                      child: Container(
+                        margin: const EdgeInsets.only(bottom: 16),
+                        child: const Text(
+                          'Travi hadir untuk meningkatkan bisnis anda',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w200,
+                              fontFamily: 'Poppins',
+                              color: Colors.black),
+                        ),
+                      ),
+                    ),
                     TextFormField(
                       controller: namaController,
                       validator: (value) {
@@ -73,7 +106,11 @@ class _JoinUsPageState extends State<JoinUsPage> {
                       },
                       decoration: const InputDecoration(
                           hintText: 'Nama/Nama Perusahaan',
+                          focusedErrorBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.red)),
                           contentPadding: EdgeInsets.all(5),
+                          errorBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.red)),
                           enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(color: Colors.green)),
                           focusedBorder: OutlineInputBorder(
@@ -93,6 +130,10 @@ class _JoinUsPageState extends State<JoinUsPage> {
                       decoration: const InputDecoration(
                           hintText: 'Nama Paket Tour',
                           contentPadding: EdgeInsets.all(5),
+                          focusedErrorBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.red)),
+                          errorBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.red)),
                           enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(color: Colors.green)),
                           focusedBorder: OutlineInputBorder(
@@ -112,6 +153,10 @@ class _JoinUsPageState extends State<JoinUsPage> {
                       decoration: const InputDecoration(
                           hintText: 'Email',
                           contentPadding: EdgeInsets.all(5),
+                          focusedErrorBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.red)),
+                          errorBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.red)),
                           enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(color: Colors.green)),
                           focusedBorder: OutlineInputBorder(
@@ -131,6 +176,10 @@ class _JoinUsPageState extends State<JoinUsPage> {
                       decoration: const InputDecoration(
                           hintText: 'No.Telepon',
                           contentPadding: EdgeInsets.all(5),
+                          focusedErrorBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.red)),
+                          errorBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.red)),
                           enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(color: Colors.green)),
                           focusedBorder: OutlineInputBorder(
@@ -150,6 +199,10 @@ class _JoinUsPageState extends State<JoinUsPage> {
                       decoration: const InputDecoration(
                           hintText: 'Alamat',
                           contentPadding: EdgeInsets.all(5),
+                          focusedErrorBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.red)),
+                          errorBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.red)),
                           enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(color: Colors.green)),
                           focusedBorder: OutlineInputBorder(
@@ -169,6 +222,10 @@ class _JoinUsPageState extends State<JoinUsPage> {
                       decoration: const InputDecoration(
                           hintText: 'Kegiatan Wisata',
                           contentPadding: EdgeInsets.all(5),
+                          focusedErrorBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.red)),
+                          errorBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.red)),
                           enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(color: Colors.green)),
                           focusedBorder: OutlineInputBorder(
@@ -188,6 +245,10 @@ class _JoinUsPageState extends State<JoinUsPage> {
                       decoration: const InputDecoration(
                           hintText: 'Deskripsi',
                           contentPadding: EdgeInsets.all(5),
+                          focusedErrorBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.red)),
+                          errorBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.red)),
                           enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(color: Colors.green)),
                           focusedBorder: OutlineInputBorder(
@@ -207,6 +268,10 @@ class _JoinUsPageState extends State<JoinUsPage> {
                       decoration: const InputDecoration(
                           hintText: 'Pelayanan',
                           contentPadding: EdgeInsets.all(5),
+                          focusedErrorBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.red)),
+                          errorBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.red)),
                           enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(color: Colors.green)),
                           focusedBorder: OutlineInputBorder(
@@ -226,6 +291,10 @@ class _JoinUsPageState extends State<JoinUsPage> {
                       decoration: const InputDecoration(
                           hintText: 'Durasi',
                           contentPadding: EdgeInsets.all(5),
+                          focusedErrorBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.red)),
+                          errorBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.red)),
                           enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(color: Colors.green)),
                           focusedBorder: OutlineInputBorder(
@@ -244,6 +313,10 @@ class _JoinUsPageState extends State<JoinUsPage> {
                       },
                       decoration: const InputDecoration(
                           hintText: 'Harga',
+                          focusedErrorBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.red)),
+                          errorBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.red)),
                           contentPadding: EdgeInsets.all(5),
                           enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(color: Colors.green)),
@@ -253,87 +326,110 @@ class _JoinUsPageState extends State<JoinUsPage> {
                     const SizedBox(
                       height: 8,
                     ),
-                    Container(
-                        //show image here after choosing image
-                        child: uploadedImage == null
-                            ? Container()
-                            : //if uploadimage is null then show empty container
-                            Container(
-                                //elese show image here
-                                child: SizedBox(
-                                    height: 150,
-                                    child: Image.file(
-                                        uploadedImage!) //load image from file
-                                    ))),
+                    Center(
+                      child: Container(
+                          //show image here after choosing image
+                          child: uploadedImage == null
+                              ? Container()
+                              : //if uploadimage is null then show empty container
+                              Container(
+                                  //elese show image here
+                                  child: SizedBox(
+                                      width: MediaQuery.of(context).size.width,
+                                      child: Image.file(
+                                          uploadedImage!) //load image from file
+                                      ))),
+                    ),
                     ElevatedButton.icon(
                       onPressed: () {
                         chooseImage();
                       },
                       label: const Text(
-                        'Choose Image',
-                        style: TextStyle(color: Colors.black),
+                        'Pilih Gambar...',
+                        style: TextStyle(color: Colors.white),
                       ),
                       icon: const Icon(Icons.folder_open),
                       style: ElevatedButton.styleFrom(
-                        primary: Colors.grey.withAlpha(50),
+                        minimumSize: const Size.fromHeight(38),
                       ),
                     ),
-                    ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                            primary: Colors.green,
-                            padding: const EdgeInsets.all(10)),
-                        onPressed: () async {
-                          if (_formKey.currentState!.validate()) {
-                            const url =
-                                'http://192.168.1.4:8000/api/tour-package';
-                            debugPrint('hello world');
-                            String fileName =
-                                uploadedImage!.path.split('/').last;
-                            var map = new Map<String, dynamic>();
-                            map['nama'] = namaController.text;
-                            map['nama_paket'] = namaPaketController.text;
-                            map['email'] = emailController.text;
-                            map['nomor_telepon'] = nomorTeleponController.text;
-                            map['alamat'] = alamatController.text;
-                            map['kegiatan_wisata'] =
-                                kegiatanWisataController.text;
-                            map['deskripsi'] = deskripsiController.text;
-                            map['durasi'] = durasiController.text;
-                            map['pelayanan'] = pelayananController.text;
-                            map['harga'] = hargaController.text;
-                            map['gambar'] =
-                                await MultipartFile.fromFile(uploadedImage!.path, filename: fileName);
-
-                            FormData formData = new FormData.fromMap(map);
-
-                            showDialog(
-                                context: context,
-                                builder: (ctx) {
-                                  return AlertDialog(
-                                    content: Text(
-                                        "Selamat Datang ${namaController.text}"),
-                                  );
-                                });
-
-                            debugPrint('hello world');
-
-                            var response =
-                                await Dio().post(url, data: formData);
-
-                            debugPrint(namaController.text);
-                            debugPrint(namaPaketController.text);
-                            debugPrint(emailController.text);
-                            debugPrint(nomorTeleponController.text);
-                            debugPrint(alamatController.text);
-                            debugPrint(kegiatanWisataController.text);
-                            debugPrint(deskripsiController.text);
-                            debugPrint(durasiController.text);
-                            debugPrint(pelayananController.text);
-                            debugPrint(hargaController.text);
-                            debugPrint(response.statusMessage);
-                          }
-                        },
-                        child: const Text('Mulai Sekarang'))
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Center(
+                      child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                              minimumSize: const Size.fromHeight(38),
+                              primary: Colors.green,
+                              padding: const EdgeInsets.all(10)),
+                              
+                          onPressed: () async {
+                            if (_formKey.currentState!.validate()) {
+                              const url =
+                                  'http://192.168.1.4:8000/api/tour-package';
+                    
+                              String fileName =
+                                  uploadedImage!.path.split('/').last;
+                              var map = new Map<String, dynamic>();
+                              map['nama'] = namaController.text;
+                              map['nama_paket'] = namaPaketController.text;
+                              map['email'] = emailController.text;
+                              map['nomor_telepon'] = nomorTeleponController.text;
+                              map['alamat'] = alamatController.text;
+                              map['kegiatan_wisata'] =
+                                  kegiatanWisataController.text;
+                              map['deskripsi'] = deskripsiController.text;
+                              map['durasi'] = durasiController.text;
+                              map['pelayanan'] = pelayananController.text;
+                              map['harga'] = hargaController.text;
+                              map['gambar'] = await MultipartFile.fromFile(
+                                  uploadedImage!.path,
+                                  filename: fileName);
+                    
+                              FormData formData = new FormData.fromMap(map);
+                    
+                              showDialog(
+                                  context: context,
+                                  builder: (ctx) {
+                                    return AlertDialog(
+                                      content: const Text(
+                                          "Sukses Menambahkan Tour Package"),
+                                      actions: [
+                                        TextButton(
+                                          onPressed: () {
+                                            Navigator.pop(context);
+                                          },
+                                          child: const Text('Close'),
+                                        ),
+                                        TextButton(
+                                          onPressed: () {
+                                            namaController.text = "";
+                                            namaPaketController.text = "";
+                                            emailController.text = "";
+                                            nomorTeleponController.text = "";
+                                            alamatController.text = "";
+                                            kegiatanWisataController.text = "";
+                                            deskripsiController.text = "";
+                                            durasiController.text = "";
+                                            pelayananController.text = "";
+                                            hargaController.text = "";
+                                            setState(() {
+                                              uploadedImage = null;
+                                            });
+                                            Navigator.pop(context);
+                                          },
+                                          child: const Text('Ok'),
+                                        )
+                                      ],
+                                    );
+                                  });
+                    
+                              var response =
+                                  await Dio().post(url, data: formData);
+                            }
+                          },
+                          child: const Text('Mulai Sekarang')),
+                    )
                   ],
                 )),
           ),

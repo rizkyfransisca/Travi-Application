@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:flutter_html/flutter_html.dart';
 
 class Destination {
   final int id;
@@ -36,7 +37,7 @@ class DestinationPage extends StatefulWidget {
 class _DestinationPageState extends State<DestinationPage> {
   Future<List<Destination>> getRequest() async {
     //replace your restFull API here.
-    String url = "http://127.0.0.1:8000/api/destination";
+    String url = "http://192.168.1.4:8000/api/destination";
     final response = await http.get(Uri.parse(url));
 
     var responseData = json.decode(response.body);
@@ -105,7 +106,7 @@ class _DestinationPageState extends State<DestinationPage> {
                                   deskripsi: snapshot.data[index].deskripsi,
                                   excerpt: snapshot.data[index].excerpt,
                                   gambar:
-                                      'http://127.0.0.1:8000/Gambar/destinations/' +
+                                      'http://192.168.1.4:8000/Gambar/destinations/' +
                                           snapshot.data[index].gambar,
                                   slug: snapshot.data[index].slug,
                                   created_at: snapshot.data[index].created_at,
@@ -118,7 +119,7 @@ class _DestinationPageState extends State<DestinationPage> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Image.network(
-                                  'http://127.0.0.1:8000/Gambar/destinations/' +
+                                  'http://192.168.1.4:8000/Gambar/destinations/' +
                                       snapshot.data[index].gambar,
                                   width: MediaQuery.of(context).size.width,
                                   height: 250,
@@ -245,14 +246,14 @@ class _DetailDestinationState extends State<DetailDestination> {
                           fontSize: 13,
                           letterSpacing: 0.4),
                     ),
-                    Text(
-                      arguments.deskripsi,
-                      style: const TextStyle(
+                    Html(
+                      data: arguments.deskripsi,
+                      defaultTextStyle: const TextStyle(
                           fontFamily: 'Poppins',
                           fontWeight: FontWeight.w300,
                           fontSize: 13,
                           letterSpacing: 0.4),
-                    )
+                    ),
                   ],
                 ),
               )
