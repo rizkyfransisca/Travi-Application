@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:travi_app/pages/admin_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({ Key? key }) : super(key: key);
@@ -13,10 +14,15 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
-        title: Center(
-          child: Image.asset(
-            'assets/images/logo.png',
-            width: 100,
+        title: GestureDetector(
+          onTap: (() {
+            Navigator.push(context, MaterialPageRoute(builder: (context) => AdminPage()));
+          }),
+          child: Center(
+            child: Image.asset(
+              'assets/images/logo.png',
+              width: 100,
+            ),
           ),
         ),
       ),
