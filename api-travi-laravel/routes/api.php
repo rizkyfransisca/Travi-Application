@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\API\AdminEventFestivalController;
 use App\Http\Controllers\API\TourPackageController;
 use App\Http\Controllers\API\EventFestivalController;
 use App\Http\Controllers\API\DestinationController;
@@ -21,6 +22,11 @@ Route::get('/tour-package', [TourPackageController::class, 'index']);
 Route::post('/tour-package', [TourPackageController::class, 'store']);
 
 Route::get('/event-festival', [EventFestivalController::class, 'index']);
+Route::post('/admin/event-festival', [AdminEventFestivalController::class, 'store']);
+Route::get('/admin/event-festival', [AdminEventFestivalController::class, 'index']);
+Route::put('/admin/event-festival/{id}', [AdminEventFestivalController::class, 'update']);
+Route::delete('/admin/event-festival/{id}', [AdminEventFestivalController::class, 'destroy']);
+
 Route::get('/destination', [DestinationController::class, 'index']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
