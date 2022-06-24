@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\API\AdminDestinationController;
 use App\Http\Controllers\API\AdminEventFestivalController;
 use App\Http\Controllers\API\TourPackageController;
 use App\Http\Controllers\API\EventFestivalController;
@@ -28,6 +29,8 @@ Route::put('/admin/event-festival/{id}', [AdminEventFestivalController::class, '
 Route::delete('/admin/event-festival/{id}', [AdminEventFestivalController::class, 'destroy']);
 
 Route::get('/destination', [DestinationController::class, 'index']);
+Route::post('/admin/destination', [AdminDestinationController::class, 'store']);
+Route::delete('/admin/destination/{id}', [AdminDestinationController::class, 'destroy']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();

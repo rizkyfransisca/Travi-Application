@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:travi_app/pages/admin_page.dart';
+import 'package:travi_app/pages/login_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({ Key? key }) : super(key: key);
@@ -16,7 +17,7 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: Colors.white,
         title: GestureDetector(
           onTap: (() {
-            Navigator.push(context, MaterialPageRoute(builder: (context) => AdminPage()));
+            Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
           }),
           child: Center(
             child: Image.asset(

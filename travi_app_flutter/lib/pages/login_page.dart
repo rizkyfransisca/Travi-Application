@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:travi_app/pages/admin_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -128,7 +129,7 @@ class _LoginPageState extends State<LoginPage> {
                           if (_formKey.currentState!.validate()) {
                             if (emailController.text == 'admin@gmail.com' &&
                                 passwordController.text == 'admin') {
-                              debugPrint('berhasil');
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => AdminPage()));
                             } else {
                               setState(() {
                                 _isVisible = true;
