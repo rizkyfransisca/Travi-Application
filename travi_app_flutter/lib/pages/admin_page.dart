@@ -5,6 +5,8 @@ import 'package:http/http.dart' as http;
 import 'package:travi_app/pages/add_event_festival_page.dart';
 import 'package:travi_app/pages/add_destination_page.dart';
 import 'package:dio/dio.dart';
+import 'package:travi_app/pages/edit_destination_page.dart';
+import 'package:travi_app/pages/edit_event_festival_page.dart';
 
 class Destination {
   final int id;
@@ -259,7 +261,36 @@ class _AdminPageState extends State<AdminPage> {
                                             )),
                                         const SizedBox(width: 15),
                                         ElevatedButton(
-                                            onPressed: (() {}),
+                                            onPressed: (() {
+                                              Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                      builder: (context) => EditDestinationPage(
+                                                          destination: Destination(
+                                                              snapshot
+                                                                  .data[index]
+                                                                  .id,
+                                                              snapshot
+                                                                  .data[index]
+                                                                  .judul,
+                                                              snapshot
+                                                                  .data[index]
+                                                                  .lokasi,
+                                                              snapshot
+                                                                  .data[index]
+                                                                  .deskripsi,
+                                                              snapshot
+                                                                  .data[index]
+                                                                  .excerpt,
+                                                              '${dotenv.env['URL']}/Gambar/destinations/' +
+                                                                  snapshot
+                                                                      .data[
+                                                                          index]
+                                                                      .gambar,
+                                                              snapshot
+                                                                  .data[index]
+                                                                  .createdAt))));
+                                            }),
                                             child: const Text('Edit',
                                                 style: TextStyle(
                                                     fontFamily: 'Poppins',
@@ -429,7 +460,36 @@ class _AdminPageState extends State<AdminPage> {
                                             )),
                                         const SizedBox(width: 15),
                                         ElevatedButton(
-                                            onPressed: (() {}),
+                                            onPressed: (() {
+                                              Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                      builder: (context) => EditEventFestivalPage(
+                                                          eventFestival: Destination(
+                                                              snapshot
+                                                                  .data[index]
+                                                                  .id,
+                                                              snapshot
+                                                                  .data[index]
+                                                                  .judul,
+                                                              snapshot
+                                                                  .data[index]
+                                                                  .lokasi,
+                                                              snapshot
+                                                                  .data[index]
+                                                                  .deskripsi,
+                                                              snapshot
+                                                                  .data[index]
+                                                                  .excerpt,
+                                                              '${dotenv.env['URL']}/Gambar/eventfestival/' +
+                                                                  snapshot
+                                                                      .data[
+                                                                          index]
+                                                                      .gambar,
+                                                              snapshot
+                                                                  .data[index]
+                                                                  .createdAt))));
+                                            }),
                                             child: const Text('Edit',
                                                 style: TextStyle(
                                                     fontFamily: 'Poppins',
