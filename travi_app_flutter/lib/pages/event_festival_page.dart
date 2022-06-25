@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
@@ -25,7 +26,7 @@ class EventFestivalPage extends StatefulWidget {
 
 class _EventFestivalPageState extends State<EventFestivalPage> {
   Future<List<EventFestival>> getRequest() async {
-    String url = "http://192.168.1.4:8000/api/event-festival";
+    String url = "${dotenv.env['URL']}/api/event-festival";
     final response = await http.get(Uri.parse(url));
 
     var responseData = json.decode(response.body);
@@ -91,7 +92,7 @@ class _EventFestivalPageState extends State<EventFestivalPage> {
                                     snapshot.data[index].lokasi,
                                     snapshot.data[index].deskripsi,
                                     snapshot.data[index].excerpt,
-                                    'http://192.168.1.4:8000/Gambar/eventfestival/' +
+                                    '${dotenv.env['URL']}/Gambar/eventfestival/' +
                                         snapshot.data[index].gambar,
                                     snapshot.data[index].createdAt));
                           },
@@ -101,7 +102,7 @@ class _EventFestivalPageState extends State<EventFestivalPage> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Image.network(
-                                  'http://192.168.1.4:8000/Gambar/eventfestival/' +
+                                  '${dotenv.env['URL']}/Gambar/eventfestival/' +
                                       snapshot.data[index].gambar,
                                   width: MediaQuery.of(context).size.width,
                                   height: 250,

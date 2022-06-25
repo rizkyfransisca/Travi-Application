@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:dio/dio.dart';
 import 'package:travi_app/pages/admin_page.dart';
@@ -195,8 +196,8 @@ class _AddEventFestivalPageState extends State<AddEventFestivalPage> {
                               padding: const EdgeInsets.all(10)),
                           onPressed: () async {
                             if (_formKey.currentState!.validate()) {
-                              const url =
-                                  'http://192.168.1.4:8000/api/admin/event-festival';
+                              var url = 
+                                  '${dotenv.env['URL']}/api/admin/event-festival';
 
                               String fileName =
                                   uploadedImage!.path.split('/').last;

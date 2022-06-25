@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:travi_app/pages/home_page.dart';
 import 'package:travi_app/pages/event_festival_page.dart';
 import 'package:travi_app/pages/login_page.dart';
@@ -7,7 +8,8 @@ import 'package:travi_app/pages/tour_package_page.dart';
 import 'package:travi_app/pages/destination_page.dart';
 import 'package:travi_app/pages/join_us_page.dart';
 
-void main() {
+Future main() async {
+  await dotenv.load(fileName: ".env");
   runApp(const MyApp());
 }
 

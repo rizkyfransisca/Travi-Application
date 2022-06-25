@@ -3,6 +3,7 @@ import 'package:travi_app/tour_package.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 Card cardWidget(
     {image,
@@ -94,7 +95,7 @@ Card cardWidget(
   );
 }
 
-const url = 'http://192.168.1.4:8000';
+var url = dotenv.env['URL'];
 
 Future<List<TourPackage>> fetchTourPackages() async {
   final response = await http.get(Uri.parse("$url/api/tour-package"));
@@ -237,7 +238,9 @@ class _TourPackagePageState extends State<TourPackagePage> {
                   itemCount: snapshot.data!.length,
                   itemBuilder: (BuildContext context, int index) {
                     return cardWidget(
-                        image: url + '/Gambar/Tour%20Package/' + snapshot.data![index].image,
+                        image: 
+                            '$url/Gambar/Tour%20Package/' +
+                            snapshot.data![index].image,
                         packageName: snapshot.data![index].packageName,
                         travelName: snapshot.data![index].travelName,
                         duration: snapshot.data![index].duration,

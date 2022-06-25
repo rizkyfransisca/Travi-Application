@@ -5,6 +5,7 @@ import 'dart:ui';
 import 'package:dio/dio.dart';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:http/http.dart' as http;
 
@@ -365,8 +366,8 @@ class _JoinUsPageState extends State<JoinUsPage> {
                               
                           onPressed: () async {
                             if (_formKey.currentState!.validate()) {
-                              const url =
-                                  'http://192.168.1.4:8000/api/tour-package';
+                              var url = 
+                                  '${dotenv.env['URL']}/api/tour-package';
                     
                               String fileName =
                                   uploadedImage!.path.split('/').last;

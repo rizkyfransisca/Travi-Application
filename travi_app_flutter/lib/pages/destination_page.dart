@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter_html/flutter_html.dart';
 
@@ -37,7 +38,7 @@ class DestinationPage extends StatefulWidget {
 class _DestinationPageState extends State<DestinationPage> {
   Future<List<Destination>> getRequest() async {
     //replace your restFull API here.
-    String url = "http://192.168.1.4:8000/api/destination";
+    String url = "${dotenv.env['URL']}/api/destination";
     final response = await http.get(Uri.parse(url));
 
     var responseData = json.decode(response.body);
@@ -106,7 +107,7 @@ class _DestinationPageState extends State<DestinationPage> {
                                   deskripsi: snapshot.data[index].deskripsi,
                                   excerpt: snapshot.data[index].excerpt,
                                   gambar:
-                                      'http://192.168.1.4:8000/Gambar/destinations/' +
+                                      '${dotenv.env['URL']}/Gambar/destinations/' +
                                           snapshot.data[index].gambar,
                                   slug: snapshot.data[index].slug,
                                   created_at: snapshot.data[index].created_at,
@@ -119,7 +120,7 @@ class _DestinationPageState extends State<DestinationPage> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Image.network(
-                                  'http://192.168.1.4:8000/Gambar/destinations/' +
+                                  '${dotenv.env['URL']}/Gambar/destinations/' +
                                       snapshot.data[index].gambar,
                                   width: MediaQuery.of(context).size.width,
                                   height: 250,
