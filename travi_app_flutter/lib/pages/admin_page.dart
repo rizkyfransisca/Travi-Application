@@ -127,7 +127,7 @@ class _AdminPageState extends State<AdminPage> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => AddDestinationPage()));
+                                  builder: (context) => const AddDestinationPage()));
                         }),
                         style: ElevatedButton.styleFrom(
                             shape: RoundedRectangleBorder(
@@ -259,7 +259,7 @@ class _AdminPageState extends State<AdminPage> {
                                                 ),
                                               ],
                                             )),
-                                        const SizedBox(width: 15),
+                                        const SizedBox(width: 8),
                                         ElevatedButton(
                                             onPressed: (() {
                                               Navigator.push(
@@ -284,17 +284,30 @@ class _AdminPageState extends State<AdminPage> {
                                                                   .excerpt,
                                                               '${dotenv.env['URL']}/Gambar/destinations/' +
                                                                   snapshot
-                                                                      .data[
-                                                                          index]
+                                                                      .data[index]
                                                                       .gambar,
                                                               snapshot
                                                                   .data[index]
                                                                   .createdAt))));
                                             }),
-                                            child: const Text('Edit',
-                                                style: TextStyle(
-                                                    fontFamily: 'Poppins',
-                                                    fontSize: 12)))
+                                            style: ElevatedButton.styleFrom(
+                                                shape: RoundedRectangleBorder(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            12)),
+                                                primary: Colors.yellow[700]),
+                                            child: Row(
+                                              children: const [
+                                                Icon(Icons.edit,
+                                                    size: 18),
+                                                Text(
+                                                  'Edit',
+                                                  style: TextStyle(
+                                                      fontFamily: 'Poppins',
+                                                      fontSize: 12),
+                                                ),
+                                              ],
+                                            ))
                                       ],
                                     )
                                   ],
@@ -325,8 +338,7 @@ class _AdminPageState extends State<AdminPage> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) =>
-                                      AddEventFestivalPage()));
+                                  builder: (context) => const AddEventFestivalPage()));
                         }),
                         style: ElevatedButton.styleFrom(
                             shape: RoundedRectangleBorder(
@@ -458,7 +470,7 @@ class _AdminPageState extends State<AdminPage> {
                                                 ),
                                               ],
                                             )),
-                                        const SizedBox(width: 15),
+                                        const SizedBox(width: 8),
                                         ElevatedButton(
                                             onPressed: (() {
                                               Navigator.push(
@@ -490,10 +502,25 @@ class _AdminPageState extends State<AdminPage> {
                                                                   .data[index]
                                                                   .createdAt))));
                                             }),
-                                            child: const Text('Edit',
-                                                style: TextStyle(
-                                                    fontFamily: 'Poppins',
-                                                    fontSize: 12)))
+                                            style: ElevatedButton.styleFrom(
+                                                shape: RoundedRectangleBorder(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            12)),
+                                                primary: Colors.yellow[700]),
+                                            child: Row(
+                                              children: const [
+                                                Icon(Icons.edit,
+                                                    size: 18),
+                                                Text(
+                                                  'Edit',
+                                                  style: TextStyle(
+                                                      fontFamily: 'Poppins',
+                                                      fontSize: 12),
+                                                ),
+                                              ],
+                                            )
+                                          )
                                       ],
                                     )
                                   ],

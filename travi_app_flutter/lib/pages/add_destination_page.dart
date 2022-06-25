@@ -47,7 +47,7 @@ class _AddDestinationPageState extends State<AddDestinationPage> {
             onPressed: (() {
               Navigator.pop(context);
             }),
-            icon: const Icon(Icons.logout_outlined),
+            icon: const Icon(Icons.arrow_back)
           ),
           backgroundColor: Colors.white,
           iconTheme: const IconThemeData(color: Colors.black),

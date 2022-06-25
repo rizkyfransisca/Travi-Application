@@ -192,7 +192,7 @@ class _TourPackageDetailState extends State<TourPackageDetail> {
                             padding: EdgeInsets.symmetric(
                                 vertical: 8, horizontal: 4),
                             child: Text(
-                              'Mulai Sekarang',
+                              'Pesan Paket Wisata',
                               style: TextStyle(
                                   fontWeight: FontWeight.w600,
                                   letterSpacing: 0.5),

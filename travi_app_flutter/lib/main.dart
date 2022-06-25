@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:travi_app/pages/home_page.dart';
 import 'package:travi_app/pages/event_festival_page.dart';
-import 'package:travi_app/pages/login_page.dart';
 import 'package:travi_app/pages/tour_package_detail_page.dart';
 import 'package:travi_app/pages/tour_package_page.dart';
 import 'package:travi_app/pages/destination_page.dart';
@@ -20,7 +19,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: NavbarButton(),
+      home: const NavbarButton(),
       routes: {
         '/event-festival': (context) => const EventFestivalPage(),
         '/event-festival/detail': (context) => const DetailEventFestival(),

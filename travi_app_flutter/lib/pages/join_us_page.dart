@@ -236,6 +236,7 @@ class _JoinUsPageState extends State<JoinUsPage> {
                       height: 8,
                     ),
                     TextFormField(
+                      maxLines: 4,
                       controller: deskripsiController,
                       validator: (value) {
                         if (value == null || value.isEmpty) {
@@ -259,6 +260,7 @@ class _JoinUsPageState extends State<JoinUsPage> {
                       height: 8,
                     ),
                     TextFormField(
+                      maxLines: 4,
                       controller: pelayananController,
                       validator: (value) {
                         if (value == null || value.isEmpty) {

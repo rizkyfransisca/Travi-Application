@@ -37,13 +37,11 @@ class DestinationPage extends StatefulWidget {
 
 class _DestinationPageState extends State<DestinationPage> {
   Future<List<Destination>> getRequest() async {
-    //replace your restFull API here.
     String url = "${dotenv.env['URL']}/api/destination";
     final response = await http.get(Uri.parse(url));
 
     var responseData = json.decode(response.body);
 
-    //Creating a list to store input data;
     List<Destination> destinations = [];
     for (var data in responseData) {
       Destination destination = Destination(
@@ -57,7 +55,6 @@ class _DestinationPageState extends State<DestinationPage> {
           created_at: data["created_at"],
           updated_at: data["updated_at"]);
 
-      //Adding user to the list.
       destinations.add(destination);
     }
     return destinations;
@@ -65,12 +62,6 @@ class _DestinationPageState extends State<DestinationPage> {
 
   @override
   Widget build(BuildContext context) {
-    // List<String> img = [
-    //   'assets/images/desa_sade_lombok.png',
-    //   'assets/images/warebo.png',
-    //   'assets/images/desa_argosari_lumajang.png',
-    //   'assets/images/Desa_Penglipuran_Bangli_Bali.png',
-    // ];
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.white,

@@ -126,66 +126,6 @@ class _TourPackagePageState extends State<TourPackagePage> {
     'assets/images/bedugul.jpg',
   ];
 
-  // var packageNames = [
-  //   'Keliling Bali Selatan dan Bali Timur',
-  //   'Keliling Bali Selatan dan Bali Barat',
-  //   'Keliling Bali',
-  //   'Keliling Bandung dan Majalengka',
-  // ];
-
-  // var travelNames = [
-  //   'Kadek Travel',
-  //   'Mamang Travel',
-  //   'Travelnesia',
-  //   'Travel Kuy'
-  // ];
-
-  // var durations = ['3 Hari', '1 Minggu', '5 Hari', '6 Hari'];
-
-  // var prices = ['Rp 750.000', 'Rp 850.000', 'Rp 400.000', 'Rp 520.000'];
-
-  // var phoneNumbers = [
-  //   '0128392108321038123',
-  //   '123981238123',
-  //   '1293812938',
-  //   '12391239712372193'
-  // ];
-
-  // var emails = [
-  //   'rizky.royal@gmail.com',
-  //   'agusseptyawan@gmail.com',
-  //   'raflycincah@gmail.com',
-  //   'rizkykhoi@gmail.com'
-  // ];
-
-  // var addresses = [
-  //   'Desa Munduk, Tabanan',
-  //   'Desa Penglipuran',
-  //   'Desa Subang',
-  //   'Desa JatiWaringin'
-  // ];
-
-  // var activities = [
-  //   'Berwisata ke kebun raya, berwisata mancing, berwisata berenang',
-  //   'Bermain bersama lumba-lumba, ke kebun binatang, launch, berenang',
-  //   'Naik kuda, naik gajah, mendaki gunung, bermain air',
-  //   'Surfing, mancing ikan hiu, berperahu, bermain main'
-  // ];
-
-  // var services = [
-  //   'Makan siang, makan malam, makan pagi',
-  //   'Mobil mewah, makan malam, makan pagi',
-  //   'Hotel bintang 5, makan malam, makan pagi',
-  //   'Makan siang, mobil mercedes, makan pagi',
-  // ];
-
-  // var descriptions = [
-  //   'Paket wisata ini sangat cocok bagi kalian yang sangat sumpek dengan pekerjaan duniawi. Pada paket wisata ini, kita akan mengeksplor Bali bagian utara dengan keindahan alam nya dan kesejukan gunung-gunung nya. Pada paket wisata ini, kita juga akan mengunjungi desa-desa kuno yang ada di Bali utara. Selain itu, kita juga akan melakukan <em>chill&nbsp;</em>di coffee shop yang ada di daerah Kintamani, tentu saja disini kalian juga bisa berswafoto dengan latar gunung batur yang sangat cantik dan menawan. Dan tidak kalah penting, pada paket wisata ini kita juga mengunjungi salah satu kebun raya terbesar yang ada di Bali.',
-  //   'Paket wisata ini sangat cocok bagi kalian yang sangat sumpek dengan pekerjaan duniawi. Pada paket wisata ini, kita akan mengeksplor Bali bagian utara dengan keindahan alam nya dan kesejukan gunung-gunung nya. Pada paket wisata ini, kita juga akan mengunjungi desa-desa kuno yang ada di Bali utara. Selain itu, kita juga akan melakukan <em>chill&nbsp;</em>di coffee shop yang ada di daerah Kintamani, tentu saja disini kalian juga bisa berswafoto dengan latar gunung batur yang sangat cantik dan menawan. Dan tidak kalah penting, pada paket wisata ini kita juga mengunjungi salah satu kebun raya terbesar yang ada di Bali.',
-  //   'Paket wisata ini sangat cocok bagi kalian yang sangat sumpek dengan pekerjaan duniawi. Pada paket wisata ini, kita akan mengeksplor Bali bagian utara dengan keindahan alam nya dan kesejukan gunung-gunung nya. Pada paket wisata ini, kita juga akan mengunjungi desa-desa kuno yang ada di Bali utara. Selain itu, kita juga akan melakukan <em>chill&nbsp;</em>di coffee shop yang ada di daerah Kintamani, tentu saja disini kalian juga bisa berswafoto dengan latar gunung batur yang sangat cantik dan menawan. Dan tidak kalah penting, pada paket wisata ini kita juga mengunjungi salah satu kebun raya terbesar yang ada di Bali.',
-  //   'Paket wisata ini sangat cocok bagi kalian yang sangat sumpek dengan pekerjaan duniawi. Pada paket wisata ini, kita akan mengeksplor Bali bagian utara dengan keindahan alam nya dan kesejukan gunung-gunung nya. Pada paket wisata ini, kita juga akan mengunjungi desa-desa kuno yang ada di Bali utara. Selain itu, kita juga akan melakukan <em>chill&nbsp;</em>di coffee shop yang ada di daerah Kintamani, tentu saja disini kalian juga bisa berswafoto dengan latar gunung batur yang sangat cantik dan menawan. Dan tidak kalah penting, pada paket wisata ini kita juga mengunjungi salah satu kebun raya terbesar yang ada di Bali.',
-  // ];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

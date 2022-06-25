@@ -49,12 +49,6 @@ class _EventFestivalPageState extends State<EventFestivalPage> {
 
   @override
   Widget build(BuildContext context) {
-    // List<String> img = [
-    //   'assets/images/kebo_keboan.png',
-    //   'assets/images/labuh_sesaji.png',
-    //   'assets/images/larung_sesaji.png',
-    //   'assets/images/grebengan.png',
-    // ];
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.white,
@@ -254,20 +248,6 @@ class _DetailEventFestivalState extends State<DetailEventFestival> {
                           TextSpan(text: arguments.createdAt.split('T')[0]),
                         ])),
                     const SizedBox(height: 12),
-                    // Html(
-                    //   data: arguments.deskripsi,
-                    //   style: {
-                    //     '*': Style(padding: const EdgeInsets.all(0), margin: const EdgeInsets.all(0)),
-                    //     'p': Style(fontFamily: 'Poppins', fontWeight: FontWeight.w300, letterSpacing: 0.4, margin: const EdgeInsets.only(bottom: 10), lineHeight: LineHeight.number(1.2))
-                    //   },
-                    // ),
-                    // Html(
-                    //   data: arguments.deskripsi,
-                    //   style: {
-                    //     '*': Style(padding: const EdgeInsets.all(0), margin: const EdgeInsets.all(0)),
-                    //     'p': Style(fontFamily: 'Poppins', fontWeight: FontWeight.w300, letterSpacing: 0.4, margin: const EdgeInsets.only(bottom: 10))
-                    //   },
-                    // ),
                     Html(
                       data: arguments.deskripsi,
                       defaultTextStyle: const TextStyle(
